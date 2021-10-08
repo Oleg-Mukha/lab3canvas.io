@@ -6,34 +6,27 @@ function tabAndBuildFunc(){
     var dx=prompt("Введіть крок: ");
     dx=parseFloat(dx);
     alert("УВАГА! Результат табулювання функції виводиться в консоль!")
-    var y=0;
-    var x=Xmin;
+    var y= function(x) {return Math.exp(0.2*Math.pow(x, 2))};
+    var x=Xmin + dx;
 
-    function tabFunc(x){
-      var a=0;
-      a=Math.exp(0.2*Math.pow(x, 2));
-      return a;
-    }
-   console.log("Табулювання функції Y(x) = e^(0.2*x^2):");
+	console.log("Табулювання функції Y(x) = e^(0.2*x^2):");
 
-/* Три вида циклів:
-  1) method using 'do-while' */
+// Три вида циклів:
+// 1) method using 'for'
+  
+  	for (let x = Xmin; x <= Xmax; x += dx)
+    console.log(`Y(${x}): ${y(x)}`);
+  
+/* 2) method using 'do-while'
 
-    for (let i = 0; x<=Xmax; i++){
+    do{
       y=tabFunc(Xmin, Xmax, x);
        console.log("Y(" + x + ") = " + y + "");
       x=x+dx;
-}
+}while(x<=Xmax);
 
-/* 2) method using 'for'
 
-    /* for (let i = 0; x<=Xmax; i++){
-    y=tabFunc(Xmin, Xmax, x);
-    console.log("Y(",x,") = ",y,"");
-    x=x+dx;
-  }
-
-3) method using 'while'
+	3) method using 'while'
 
     while(x<=Xmax){
       y=tabFunc(Xmin, Xmax, x);
@@ -95,5 +88,5 @@ for (let i = 0; i <= canvasWidth; i++){
   const y = Math.exp(0.2*Math.pow(x, 2));
   ctx.fillRect(x * scaleX + xAxis, yAxis - scaleY * y, 4, 4);
 }
-
+ctx.fillText('1', canvasHeight - 140, xAxis - 150);
 }
