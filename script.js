@@ -88,5 +88,4 @@ for (let i = 0; i <= canvasWidth; i++){
   const y = Math.exp(0.2*Math.pow(x, 2));
   ctx.fillRect(x * scaleX + xAxis, yAxis - scaleY * y, 4, 4);
 }
-ctx.fillText('1', canvasHeight - 140, xAxis - 150);
 }
